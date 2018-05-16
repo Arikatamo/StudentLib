@@ -48,20 +48,20 @@ namespace WindowStudent
                 Subjects.ItemsSource = temp.Ratings;
                 StakREsidence.DataContext = temp.Residence;
                 BitmapImage bit = new BitmapImage();
-                bit.BeginInit();
+            
                 if (temp.Image != null)
                 {
-
-                bit.StreamSource = photo.MemoryStream(temp.Image);
-
+                    bit.BeginInit();
+                    bit.StreamSource = photo.MemoryStream(temp.Image);
+                    bit.EndInit();
+                    ImageS.Stretch = Stretch.Fill;
+                    ImageS.Source = bit;
                 }
                 else
                 {
                     bit.UriSource = new Uri(@"C:\Users\Arikatamo\source\repos\StudentBlank\WindowStudent\no-image.png");
                 }
-                bit.EndInit();
-                ImageS.Stretch = Stretch.Fill;
-                ImageS.Source = bit;
+   
                 //Добавлення фото в базу
                 //(StudentGrid.SelectedItem as EStudent).Image = photo.ImageToByte(photo.BitmapImage2Bitmap(bit));
                 //student.Save();
