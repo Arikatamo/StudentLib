@@ -297,7 +297,6 @@ namespace StudentBlank
                 Para1.SpaceAfter = 0;
                 Para1.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
                 // Кваліфікаційний рівень
-                
                 rr = Para1.Range;
                 rr.Start = ll;
                 rangeDays = rr.Start;
@@ -354,9 +353,73 @@ namespace StudentBlank
                 Para1.Range.InsertParagraphAfter();
                 Para1.Range.Font.Underline = WdUnderline.wdUnderlineNone;
 
-
-
-
+                //Про себе повідомляю
+                
+                Para1.Range.Text = "Про себе повідомляю";
+                styleHeading = "Title";
+                Para1.Range.set_Style(ref styleHeading);
+                Para1.SpaceAfter = 1;
+                Para1.SpaceBefore = 3;
+                Para1.Range.Font.Size = fontHead;
+                Para1.Range.Font.Bold = 1;
+                Para1.Range.Font.Color = WdColor.wdColorBlack;
+                Para1.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+                Para1.Range.InsertParagraphAfter();
+                //Освітньо-кваліфікаційний рівень молодшого спеціаліста за кошти державного бюджету:
+                temp = $"Освітньо-кваліфікаційний рівень молодшого спеціаліста за кошти державного бюджету: ніколи не здобувався - ";
+                Para1.Range.Text = temp;
+                ll = Para1.Range.End;
+                Para1.Format.FirstLineIndent = 0;
+                Para1.Range.Font.Size = fontStandart;
+                Para1.Range.Font.Color = WdColor.wdColorBlack;
+                Para1.SpaceAfter = 0;
+                Para1.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+                //Так
+                rr = Para1.Range;
+                rr.Start = ll;
+                rangeDays = rr.Start;
+                rr.Text = $" Так ;";
+                rr.Font.Size = fontBig;
+                rr.Font.Bold = 1;
+                ll = Para1.Range.End;
+                Para1.Range.InsertParagraphAfter();
+                //вже здобутий раніше -
+                temp = $"вже здобутий раніше - ";
+                Para1.Range.Text = temp;
+                ll = Para1.Range.End;
+                Para1.Format.FirstLineIndent = 0;
+                Para1.Range.Font.Size = fontStandart;
+                Para1.Range.Font.Color = WdColor.wdColorBlack;
+                Para1.SpaceAfter = 0;
+                Para1.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+                //Ні
+                rr = Para1.Range;
+                rr.Start = ll;
+                rangeDays = rr.Start;
+                rr.Text = $" Ні ;";
+                rr.Font.Size = fontBig;
+                rr.Font.Bold = 1;
+                ll = Para1.Range.End;
+                Para1.Range.InsertParagraphAfter();
+                //вже здобувався раніше (навчання не завершено) -
+                temp += $"вже здобувався раніше (навчання не завершено) - ";
+                Para1.Range.Text = temp;
+                ll = Para1.Range.End;
+                Para1.Format.FirstLineIndent = 0;
+                Para1.Range.Font.Size = fontStandart;
+                Para1.Range.Font.Color = WdColor.wdColorBlack;
+                Para1.SpaceAfter = 0;
+                Para1.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+                //Так
+                rr = Para1.Range;
+                rr.Start = ll;
+                rangeDays = rr.Start;
+                rr.Text = $" Так ;";
+                rr.Font.Size = fontBig;
+                rr.Font.Bold = 1;
+                ll = Para1.Range.End;
+                Para1.Range.InsertParagraphAfter();
+                //Закінчив(ла)
 
                 ////Add paragraph with Heading 2 style
                 //Microsoft.Office.Interop.Word.Paragraph para2 = document.Content.Paragraphs.Add(ref missing);
