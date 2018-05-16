@@ -402,7 +402,7 @@ namespace StudentBlank
                 ll = Para1.Range.End;
                 Para1.Range.InsertParagraphAfter();
                 //вже здобувався раніше (навчання не завершено) -
-                temp += $"вже здобувався раніше (навчання не завершено) - ";
+                temp = $"вже здобувався раніше (навчання не завершено) - ";
                 Para1.Range.Text = temp;
                 ll = Para1.Range.End;
                 Para1.Format.FirstLineIndent = 0;
@@ -420,6 +420,118 @@ namespace StudentBlank
                 ll = Para1.Range.End;
                 Para1.Range.InsertParagraphAfter();
                 //Закінчив(ла)
+                temp = $"Закінчив(ла): ";
+                Para1.Range.Text = temp;
+                ll = Para1.Range.End;
+                Para1.Format.FirstLineIndent = 0;
+                Para1.Range.Font.Size = fontStandart;
+                Para1.Range.Font.Color = WdColor.wdColorBlack;
+                Para1.SpaceAfter = 0;
+                Para1.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+                //"Тут має бути текст про закінчення закладу!"
+                rr = Para1.Range;
+                rr.Start = ll;
+                rangeDays = rr.Start;
+                rr.Text = $" Тут має бути текст про закінчення закладу! ;";
+                rr.Font.Size = fontBig;
+                rr.Font.Bold = 1;
+                ll = Para1.Range.End;
+                Para1.Range.InsertParagraphAfter();
+                //Іноземна мова, яку вивчав(ла)
+                temp = $"Іноземна мова, яку вивчав(ла): ";
+                Para1.Range.Text = temp;
+                ll = Para1.Range.End;
+                Para1.Format.FirstLineIndent = 0;
+                Para1.Range.Font.Size = fontStandart;
+                Para1.Range.Font.Color = WdColor.wdColorBlack;
+                Para1.SpaceAfter = 0;
+                Para1.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+                //Мова
+                rr = Para1.Range;
+                rr.Start = ll;
+                rangeDays = rr.Start;
+                rr.Text = $" Англійська ;";
+                rr.Font.Size = fontBig;
+                rr.Font.Bold = 1;
+                ll = Para1.Range.End;
+                Para1.Range.InsertParagraphAfter();
+                //Закінчив(ла)
+                temp = $"Середній бал диплома: ";
+                Para1.Range.Text = temp;
+                ll = Para1.Range.End;
+                Para1.Format.FirstLineIndent = 0;
+                Para1.Range.Font.Size = fontStandart;
+                Para1.Range.Font.Color = WdColor.wdColorBlack;
+                Para1.SpaceAfter = 0;
+                Para1.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+                //Оцінка
+                rr = Para1.Range;
+                rr.Start = ll;
+                rangeDays = rr.Start;
+                rr.Text = $" 10 ;";
+                rr.Font.Size = fontBig;
+                rr.Font.Bold = 1;
+                ll = Para1.Range.End;
+                Para1.Range.InsertParagraphAfter();
+
+
+                //На час навчання поселення в гуртожиток: потребую - ; не потребую - (можна добавити до студента змінну яка тут буде підставлятися)
+                temp = $"На час навчання поселення в гуртожиток: потребую - Так; не потребую - Ні";
+                Para1.Range.Text = temp;
+                ll = Para1.Range.End;
+                Para1.Format.FirstLineIndent = 0;
+                Para1.Range.Font.Size = fontStandart;
+                Para1.Range.Font.Color = WdColor.wdColorBlack;
+                Para1.SpaceAfter = 0;
+                Para1.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+                Para1.Range.InsertParagraphAfter();
+                //Громадянство: Україна -; інша країна:
+                temp = $"Громадянство: Україна - Так; інша країна: Ні";
+                Para1.Range.Text = temp;
+                ll = Para1.Range.End;
+                Para1.Format.FirstLineIndent = 0;
+                Para1.Range.Font.Size = fontStandart;
+                Para1.Range.Font.Color = WdColor.wdColorBlack;
+                Para1.SpaceAfter = 0;
+                Para1.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+                Para1.Range.InsertParagraphAfter();
+                //Стать: чоловіча - ; жіноча -
+                string Man = (student.Sex.Sex == "Чоловік") ? "Так" : "Ні";
+                string Woman = (student.Sex.Sex == "Жінка") ? "Так" : "Ні";
+
+                temp = $"Стать: чоловіча - {Man}; жіноча - {Woman}";
+                Para1.Range.Text = temp;
+                ll = Para1.Range.End;
+                Para1.Format.FirstLineIndent = 0;
+                Para1.Range.Font.Size = fontStandart;
+                Para1.Range.Font.Color = WdColor.wdColorBlack;
+                Para1.SpaceAfter = 0;
+                Para1.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+                Para1.Range.InsertParagraphAfter();
+                //Дата і місце народження:
+                temp = $"Дата і місце народження: {student.Residence.Oblast}, {student.Residence.Rajon}, {student.Residence.Town}";
+                Para1.Range.Text = temp;
+                ll = Para1.Range.End;
+                Para1.Format.FirstLineIndent = 0;
+                Para1.Range.Font.Size = fontStandart;
+                Para1.Range.Font.Color = WdColor.wdColorBlack;
+                Para1.SpaceAfter = 0;
+                Para1.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+                Para1.Range.InsertParagraphAfter();
+                //Місце проживання: індекс__________, область ________________________, район_____________________________,
+                //місто / смт / село ___________________________, вулиця__________________________, будинок ___, квартира ______,
+                //домашній, мобільний телефони _________________________________, електронна пошта __________________________
+                temp = $"Місце проживання: індекс: {student.Residence.Index}, область: {student.Residence.Oblast} , район: {student.Residence.Rajon}, " +
+                    $"місто / смт / село: {student.Residence.Town}, вулиця: {student.Residence.Street}, будинок: {student.Residence.NumberBuild}, квартира: {student.Residence.NumberKW}," +
+                    $"домашній, мобільний телефони: {student.Phone}, {student.MobilePhone}, електронна пошта: {student.Email}";
+                Para1.Range.Text = temp;
+                ll = Para1.Range.End;
+                Para1.Format.FirstLineIndent = 0;
+                Para1.Range.Font.Size = fontStandart;
+                Para1.Range.Font.Color = WdColor.wdColorBlack;
+                Para1.SpaceAfter = 0;
+                Para1.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+                Para1.Range.InsertParagraphAfter();
 
                 ////Add paragraph with Heading 2 style
                 //Microsoft.Office.Interop.Word.Paragraph para2 = document.Content.Paragraphs.Add(ref missing);
