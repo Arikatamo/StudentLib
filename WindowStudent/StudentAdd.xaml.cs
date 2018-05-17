@@ -119,7 +119,8 @@ namespace WindowStudent
             AddRatings.IsEnabled = true;
             RemoveRating.IsEnabled = true;
             Add.IsEnabled = false;
-            this.DialogResult = true;
+            
+            
         }
 
         private void btnAddPhoto_Click(object sender, RoutedEventArgs e)
